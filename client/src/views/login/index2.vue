@@ -2,7 +2,6 @@
   <section>
     <h1>Login</h1>
     <div v-if="loggingIn">
-      <img src="../assets/pacman_loading.svg" />
     </div>
     <div v-if="errorMessage" class="alert alert-danger" role="alert">
       {{errorMessage}}
@@ -45,7 +44,7 @@ const LOGIN_URL = 'http://localhost:5000/auth/login';
 const schema = Joi.object().keys({
   username: Joi.string().regex(/(^[a-zA-Z0-9_]+$)/).min(2).max(30)
     .required(),
-  password: Joi.string().trim().min(10).required(),
+  password: Joi.string().trim().min(4).required(),
 });
 export default {
   data: () => ({
