@@ -53,7 +53,7 @@ router.post('/signup', (req, res, next) => {
       if (user) {
         // there is already a user in the db with this username...
         // respond with an error!
-        const error = new Error('That username is not OG. Please choose another one.');
+        const error = new Error('That username exits. Please choose another one.');
         res.status(409)
         next(error)
       } else {
